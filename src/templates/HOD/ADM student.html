@@ -1,0 +1,56 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'HOD/hodindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action=" ADM_student1">
+  <table width="644" border="0" class="table table-striped">
+    <tr>
+      <th >Department
+      <td>{{val1.Dept_name}}</td>
+        <!--<select name="select">-->
+           <!--{% for i in val1 %}-->
+          <!--<option value="{{i['dept_id']}}">{{i['Dept_name']}}</option>-->
+           <!--{% endfor %}-->
+        <!--</select>        <label></label>        <label>-->
+      <!--<td> <input type="submit" name="Submit2" value="search" /></td>-->
+      </label></th>
+    </tr>
+    <tr>
+      <th width="45" scope="row">SI.no</th>
+      <td width="49">Adm.no</td>
+      <td width="43">Reg.no</td>
+      <td width="54">Name</td>
+      <td width="51">Year</td>
+      <td width="63">Sem</td>
+      <td width="63">Phno</td>
+      <td width="63">Email</td>
+       <td width="63">&nbsp</td>
+
+    </tr>
+     {% for i in val10 %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{i['adm_no']}}</td>
+      <td>{{i['Reg_no']}}</td>
+      <td>{{i['st_name']}}</td>
+      <td>{{i['year']}}</td>
+      <td>{{i['sem']}}</td>
+      <td>{{i['Ph_no']}}</td>
+       <td>{{i['email']}}</td>
+      <td><p><a href="Studentedit?id={{i['lid']}}" class="btn btn-success">edit</a></p>
+      <p><a href="dltstud?id={{i['lid']}}" class="btn btn-danger">delete</a></p></td>
+    </tr>
+     {% endfor %}
+    <tr>
+     <th><a href="ADD_student">Add</a></th>
+    </tr>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

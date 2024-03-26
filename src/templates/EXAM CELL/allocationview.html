@@ -1,0 +1,49 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+<!--</head>-->
+{% extends 'EXAM CELL/examindex.html'%}
+{% block body %}
+<body>
+ <script>
+        function printDiv() {
+            var divContents = document.getElementById("GFG").innerHTML;
+            var a = window.open('', '', 'height=500, width=500');
+
+            a.document.write(divContents);
+
+            a.document.close();
+            a.print();
+        }
+    </script>
+<form name="form1" method="post" action="">
+  <div  id="GFG" >
+  <table width="200" border="1"  class="table table-striped">
+    <tr>
+      <th scope="col">Sl.no</th>
+      <th scope="col">Seat.no</th>
+      <th scope="col">Reg.no</th>
+      <th scope="col">Subject</th>
+    </tr>
+       {% for j in val %}
+    <tr>
+      <td colspan="4"><div align="center">Hall No {{j[0]}}</div> </td>
+    </tr>
+    {% for i in j[1] %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{i['seat_no']}}</td>
+      <td>{{i['Reg_no']}}</td>
+      <td>{{i['sub_name']}}</td>
+    </tr>
+    {% endfor %}
+       {% endfor %}
+  </table>
+    </div>
+   <input type="button" value="Print" onclick="printDiv()"  class="btn btn-success">
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

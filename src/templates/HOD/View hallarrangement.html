@@ -1,0 +1,61 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'HOD/hodindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="vhallarrangement">
+  <table width="479" border="1" class="table table-striped">
+    <tr>
+      <th colspan="3" scope="col"><label></label>
+        <label>
+        <label>
+        <div align="left">Room .no
+            <select name="select2">
+              
+              {% for i in val %}
+              
+              <option value="{{i['hall_id']}}">{{i['room_no']}}</option>
+              
+              {% endfor %}
+          
+            </select>
+          Date
+          <select name="select">
+            
+              {% for i in v %}
+              
+            <option>{{i['date']}}</option>
+            
+              {% endfor %}
+          
+          </select>
+          <input type="submit" name="Submit" value="Search" />
+        </div>
+        <label>
+        <div align="right"></div>
+        </label>
+        <label></label>
+          </label></th>
+    </tr>
+    <tr>
+      <th width="44" scope="row">SI.no</th>
+      <td width="177">Reg.no</td>
+      <td width="236">Seat.no</td>
+    </tr>
+      {% for i in val1 %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{i['Reg_no']}}</td>
+      <td>{{i['seat_no']}}</td>
+    </tr>
+       {% endfor %}
+
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

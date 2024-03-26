@@ -1,0 +1,48 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'ADMIN/adminindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="edithod">
+  <table width="200" border="1" class="table table-striped">
+    <tr>
+      <th colspan="2" scope="col">HOD</th>
+    </tr>
+    <tr>
+      <th scope="row">Name</th>
+      <td><label>
+        <input type="text" name="textfield" required value="{{val6['name']}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Department</th>
+      <td><label>
+        <select name="select">
+         {% for i in v %}
+          <option value="{{i['dept_id']}}">{{i['Dept_name']}}</option>
+           {% endfor %}
+        </select>
+      </label></td>
+    </tr>
+    <tr>
+      <th scope="row">Email</th>
+      <td><input type="text" name="textfield3" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}" value="{{val6['emailid']}}" /></td>
+    </tr>
+    <tr>
+      <th scope="row">Ph.no</th>
+      <td><input type="text" name="textfield4" required pattern="[6789][0-9]{9}" value="{{val6['ph_no']}}"/></td>
+    </tr>
+   </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="Submit" value="ADD"  class="btn btn-success"/></th>
+    </tr>
+  </table>
+  <label></label>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

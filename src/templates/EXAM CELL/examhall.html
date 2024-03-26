@@ -1,0 +1,45 @@
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+{% extends 'EXAM CELL/examindex.html'%}
+{% block body %}
+<body>
+<form name="form1" method="post" action="examhall">
+  <table width="200" border="1" class="table table-striped">
+    <tr>
+      <th scope="col">Room.no</th>
+      <th scope="col"><input type="text" name="textfield"></th>
+    </tr>
+    <tr>
+      <th scope="row">No.of students </th>
+      <td><input type="text" name="textfield2"></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="Submit" value="Add"></th>
+    </tr>
+  </table>
+  <table width="200" border="1">
+    <tr>
+      <th scope="col">Room.No</th>
+      <th scope="col">No.of Students </th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+ {% for i in val1 %}
+    <tr>
+
+      <th scope="row">{{i['room_no']}}</th>
+      <td>{{i['no.of_studs']}}</td>
+
+      <td><a href="deletexamhall?id={{i['hall_id']}}" class="btn btn-danger">delete</a></td>
+    </tr>
+     {% endfor %}
+  </table>
+  <p>&nbsp;</p>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

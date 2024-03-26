@@ -1,0 +1,51 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'ADMIN/adminindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="vstd">
+  <table width="200" border="1" class="table table-striped">
+    <tr>
+      <th colspan="3" scope="col">Department</th>
+      <th colspan="3" scope="col"><label>
+        <select name="select">
+           {% for i in val4 %}
+          <option value="{{i['dept_id']}}" {% if i['dept_id']|string == dep|string %}selected{% endif %}>{{i['Dept_name']}}</option>
+           {% endfor %}
+        </select>
+      </label></th>
+      <th colspan="2" scope="col"><label>
+      <input type="submit" name="Submit" value="Search" />
+      </label></th>
+    </tr>
+    <tr>
+      <th scope="row">SI.No</th>
+      <td>Adm.No</td>
+      <td>Reg.No</td>
+      <td>Name</td>
+      <td>Sem</td>
+      <td>Year</td>
+      <td>ph.no</td>
+      <td>email</td>
+    </tr>
+    {% for i in val %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{i['adm_no']}}</td>
+      <td>{{i['Reg_no']}}</td>
+      <td>{{i['st_name']}}</td>
+      <td>{{i['sem']}}</td>
+      <td>{{i['year']}}</td>
+      <td>{{i['Ph_no']}}</td>
+      <td>{{i['email']}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

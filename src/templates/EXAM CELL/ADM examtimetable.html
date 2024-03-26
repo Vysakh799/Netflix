@@ -1,0 +1,63 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'EXAM CELL/examindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="ADM_Examtimetable1">
+  <table width="522" border="1" class="table table-striped">
+    <tr>
+      <th colspan="2" scope="col">Department
+        <label>
+        <select name="select">
+           {% for i in val1 %}
+          <option value="{{i['dept_id']}}" {% if dep|string == i['dept_id']|string %}selected{% endif %}>{{i['Dept_name']}}</option>
+           {% endfor %}
+        </select>
+        </label></th>
+      <!--<th colspan="2" scope="col">Sem-->
+        <!--<label>-->
+        <!--<select name="select2">-->
+          <!--<option {% if sem == '1' %}selected{% endif %}>1</option>-->
+          <!--<option  {% if sem == '2' %}selected{% endif %}>2</option>-->
+          <!--<option {% if sem == '3' %}selected{% endif %}>3</option>-->
+          <!--<option {% if sem == '4' %}selected{% endif %}>4</option>-->
+          <!--<option {% if sem == '5' %}selected{% endif %}>5</option>-->
+          <!--<option {% if sem == '6' %}selected{% endif %}>6</option>-->
+        <!--</select>-->
+        <!--</label></th>-->
+      <th colspan="2" scope="col"><label>
+      <input type="submit" name="Submit2" value="Search" />
+      </label></th>
+    </tr>
+    <tr>
+      <th width="92" scope="row">SI.no</th>
+      <td colspan="2">Subject.name</td>
+      <td width="74">Time</td>
+      <td width="92">Date</td>
+      <td width="39">&nbsp;</td>
+    </tr>
+       {% for i in val %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td colspan="2">{{i['sub_name']}}</td>
+      <td>{{i['time']}}</td>
+      <td>{{i['date']}}</td>
+      <td><p><a href="Timetabledit?id={{i['tid']}}" class="btn btn-success">edit</a></p>
+        <p><a href="deletetimetable?id={{i['tid']}}" class="btn btn-danger">Delete</a></p>
+      </td>
+    </tr>
+        {% endfor %}
+    <tr>
+      <th colspan="6" scope="row"><label>
+      <a href="ADD_examtimetable">add</a>
+      </label></th>
+    </tr>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}

@@ -1,0 +1,52 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{% extends 'HOD/hodindex.html'%}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="ADM_subject1">
+  <table width="402" border="0" class="table table-striped">
+    <tr>
+      <th>Department</th>
+       <td>{{va.Dept_name}}</td>
+        <label>
+        <!--<select name="select">-->
+           <!--{% for i in va %}-->
+          <!--<option value="{{i['dept_id']}}">{{i['Dept_name']}}</option>-->
+           <!--{% endfor %}-->
+        <!--</select>-->
+      <!--</label>-->
+        <!--<label>-->
+          <!--<TD> <input type="submit" name="Submit2" value="Search" /></TD>-->
+      </label>
+    </tr>
+    <tr>
+      <th width="35" scope="col">SI.no</th>
+      <th width="108" scope="col">Sub.code</th>
+      <th width="108" scope="col">Sub.name</th>
+      <th width="59" scope="col">sem</th>
+      <th width="27" scope="col">Revision</th>
+
+    </tr>
+     {% for i in val %}
+    <tr>
+      <th scope="row">{{loop.index}}</th>
+      <td>{{i['sub_code']}}</td>
+      <td>{{i['sub_name']}}</td>
+      <td>{{i['sem']}}</td>
+      <td>{{i['revision']}}</td>
+      <td><p><a href="Subjectedit?id={{i['sub_id']}}" class="btn btn-success">edit</a></p>
+      <p><a href="dltsub?id={{i['sub_id']}}" class="btn btn-danger">delete</a></p></td>
+    </tr>
+     {% endfor %}
+    <tr>
+      <th height="23" colspan="6" scope="row"><label><a href="ADD_subject">Add</a></label></th>
+    </tr>
+  </table>
+</form>
+</body>
+<!--</html>-->
+{% endblock %}
